@@ -1,0 +1,22 @@
+<%= form_with(model: guideline, local: true) do |form| %>
+  <% if guideline.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(guideline.errors.count, "error") %> prohibited this guideline from being saved:</h2>
+
+      <ul>
+        <% guideline.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">규칙명</span>
+	<input type="text" name="guideline[name]" id="guideline_name" class="form-control" placeholder="규칙명 입력..." value="<%= @guideline.name %>">
+  </div>
+
+  <div class="actions center">
+	<button type="submit" name="commit" class="btn btn-outline-success">업로드 하기</button>
+  </div>
+<% end %>

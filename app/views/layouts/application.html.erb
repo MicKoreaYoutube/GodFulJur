@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			.center {
+				display: table;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.jua {
+				font-family: 'Jua', sans-serif;
+				font-size: 140%;
+			}
+			.all {
+				background-image: url('https://lh3.googleusercontent.com/drive-viewer/AJc5JmTG-9k9XKeG2Ua8cGVNfbco6D7MvGI5tLv1HrLTO8n-dy8Nlh8E66972_DCCyPNq4nmSlPgtog=w1920-h942');
+				background-size: 100% 100%;
+				padding: 0% 1% 0% 1%;
+			}
+			.content {
+				background-color: #d9e5ff;
+			}
+			.brand-img {
+				content: url('https://proxy.goorm.io/service/626695e04efdbbea25c558cc_dIm58XiDguRi37echy4.run.goorm.io/9080/file/load/test12.png?path=d29ya3NwYWNlJTJGR29kRnVsSnVyJTJGdGVzdDEyLnBuZw==&docker_id=dIm58XiDguRi37echy4&secure_session_id=6mAuINkaIOdwXcVEJq2_WF3ASJujOiJh')
+			}
+			.a-remove {
+				text-decoration: none;
+				color: black;
+			}
+		</style>
+		<script>
+			function destroy(phrases) {
+				if (confirm(phrases)) {
+					return true;
+				} else {
+					event.preventDefault();
+				}
+			}
+			ClassicEditor.create( document.querySelector( '#editor' ) );
+		</script>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet" />
+		<script src="https://cdn.ckeditor.com/ckeditor5/35.2.0/classic/ckeditor.js"></script>
+		<link rel="icon" href="https://proxy.goorm.io/service/626695e04efdbbea25c558cc_dIm58XiDguRi37echy4.run.goorm.io/9080/file/load/test12.png?path=d29ya3NwYWNlJTJGR29kRnVsSnVyJTJGdGVzdDEyLnBuZw==&docker_id=dIm58XiDguRi37echy4&secure_session_id=DImyQcIyc3hw7XLsY8ht6QGhVbw_3mD4">
+	</head>
+
+	<body>
+		<%= yield %>
+		<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+			<div class="offcanvas-header">
+				<a class="navbar-brand" href="/">
+					<img
+						class="brand-img"
+						alt=""
+						width="45"
+						height="45"
+					/>
+					<span style="color: #61ade6;">G</span><span>o</span><span>d</span
+					><span style="color: #00d5ff;">F</span><span>u</span><span>l</span
+					><span style="color: lightblue;">J</span><span>u</span><span>r</span>
+				</a>
+				<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+			</div>
+			<div class="offcanvas-body">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-tabs">
+					<li class="nav-item">
+						<a class="nav-link" aria-current="page" href="/">홈</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a
+							class="nav-link dropdown-toggle"
+							href="#"
+							id="navbarDropdown"
+							role="button"
+							data-bs-toggle="dropdown"
+							aria-expanded="false"
+						>
+							게시판
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<li>
+								<a class="dropdown-item" href="/board/announcements/index"
+									>공지사항</a
+								>
+							</li>
+							<li><hr class="dropdown-divider" /></li>
+							<li><a class="dropdown-item" href="/posts">커뮤니티</a></li>
+							<li><a class="dropdown-item" href="/support">기타</a></li>
+						</ul>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/games">게임들</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/leaderboard">리더보드</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/store">상점</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/guidelines">규칙</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/introduction">서버 소개</a>
+					</li>
+				</ul>
+				<div class="d-flex nav-item">
+					<% if user_signed_in? %>
+						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+							<li class="nav-item">
+								<a class="nav-link active" href="#"><span style="color: <%= current_user.color %>">[<%= current_user.role %>]</span><%= current_user.username %>님</a>
+							</li>
+						</ul>
+						<br>
+						<div class="d-flex">
+							<form action="/users/edit">
+								<button class="btn btn-outline-success nav-item" type="submit">회원정보 수정</button>
+							</form>
+							&nbsp;
+							<%= form_tag(destroy_user_session_path, method: "delete") do %>
+								<button class="btn btn-outline-success nav-item" type="submit">로그아웃</button>
+							<% end %>
+						</div>
+					<% else %>
+						<form action="/users/sign_in">
+							<button class="btn btn-outline-success nav-item" type="submit">로그인</button>
+						</form>
+						&nbsp;
+						<form action="/users/sign_up">
+							<button class="btn btn-outline-success nav-item" type="submit">회원가입</button>
+						</form>
+					<% end %>
+				</div>
+			</div>
+		</div>
+		<div class="card-footer text-muted center">
+			<div class="center">
+				<p>
+					Copyright © 2022. GodFulJur All rights reserved
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

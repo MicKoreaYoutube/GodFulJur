@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<title>GodFulJur - 회원가입</title>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light nav-tabs">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="/">
+					<img
+						class="brand-img"
+						alt=""
+						width="45"
+						height="45"
+					/>
+					<span style="color: #61ade6;">G</span><span>o</span><span>d</span
+					><span style="color: #00d5ff;">F</span><span>u</span><span>l</span
+					><span style="color: lightblue;">J</span><span>u</span><span>r</span>
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+				  <span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-tabs">
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" href="/">홈</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a
+								class="nav-link dropdown-toggle"
+								href="#"
+								id="navbarDropdown"
+								role="button"
+								data-bs-toggle="dropdown"
+								aria-expanded="false"
+							>
+								게시판
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li>
+									<a class="dropdown-item" href="/board/announcements/index"
+										>공지사항</a
+									>
+								</li>
+								<li><hr class="dropdown-divider" /></li>
+								<li><a class="dropdown-item" href="/posts">커뮤니티</a></li>
+								<li><a class="dropdown-item" href="/support">기타</a></li>
+							</ul>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/games">게임들</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/leaderboard">리더보드</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/store">상점</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/guidelines">규칙</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/introduction">서버 소개</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="all">
+			&nbsp;
+			<br />
+			&nbsp;
+			<div class="center content rounded-3 jua">
+				<div class="center content rounded-3">
+					
+				</div>
+				<div class="center content rounded-3">
+					<h2 class="center">회원 가입</h2>
+					<form action="/users" accept-charset="UTF-8" method="post" class="center">
+						<input
+							name="authenticity_token"
+							value="<%= form_authenticity_token %>"
+							type="hidden"
+						/>
+						<hr>
+						<a href="/guidelines/5" class="a-remove">개인정보보호처리방침 및 이용 약관</a>
+						<br>
+						<p>나는 해당 개인정보보호처리방침을 전부 이해했고 이 모든 것에 동의합니다. <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" required></p>
+						<hr>
+						<div class="input-group mb-3">
+							ㅤ
+							<span class="input-group-text" id="basic-addon1">*이메일</span>
+							<input
+								type="email"
+								class="form-control"
+								placeholder="이메일 입력..."
+								aria-label="Email"
+								aria-describedby="basic-addon1"
+								name="user[email]"
+								required
+							/>
+							ㅤ
+						</div>
+						<div class="input-group mb-3">
+							ㅤ
+							<span class="input-group-text" id="basic-addon1"
+								>*비밀번호<br />(최소 6글자)</span
+							>
+							<input
+								type="password"
+								class="form-control"
+								placeholder="비밀번호 입력..."
+								aria-label="Password"
+								aria-describedby="basic-addon1"
+								name="user[password]"
+								required
+							/>
+							ㅤ
+						</div>
+						<div class="input-group mb-3">
+							ㅤ
+							<span class="input-group-text" id="basic-addon1">*비밀번호 확인</span>
+							<input
+								type="password"
+								class="form-control"
+								placeholder="비밀번호 입력..."
+								aria-label="Password"
+								aria-describedby="basic-addon1"
+								name="user[password_confirmation]"
+								required
+							/>
+							ㅤ
+						</div>
+						<div class="input-group mb-3">
+							ㅤ
+							<span class="input-group-text" id="basic-addon1">*마크 닉네임</span>
+							<input
+								type="text"
+								class="form-control"
+								placeholder="마크 닉네임 입력..."
+								aria-label="Password"
+								aria-describedby="basic-addon1"
+								name="user[username]"
+								required
+							/>
+							ㅤ
+						</div>
+						<div class="form-actions center">
+							<input
+								class="btn btn-outline-success"
+								type="submit"
+								name="commit"
+								value="회원 가입"
+								class="btn"
+								data-disable-with="Sign up"
+							/>
+						</div>
+					</form>
+					<hr>
+					<form action="/users/sign_in" class="center">
+						<input class="btn btn-outline-success" type="submit" value="로그인"/>
+					</form>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+				</div>
+			</div>
+			&nbsp;
+			<br />
+			&nbsp;
+		</div>
+	</body>
+</html>

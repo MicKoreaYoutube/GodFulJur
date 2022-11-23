@@ -1,0 +1,28 @@
+<%= form_with(model: announcement, local: true) do |form| %>
+  <% if announcement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(announcement.errors.count, "error") %> prohibited this announcement from being saved:</h2>
+
+      <ul>
+        <% announcement.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+	  <div class="input-group mb-3">
+		  <span class="input-group-text" id="basic-addon1">제목</span>
+		  <input type="text" class="form-control" placeholder="제목 입력..." value="<%= @announcement.title %>" name="announcement[title]" id="announcement_title">
+	  </div>
+  </div>
+  <div class="input-group mb-3">
+	<span class="input-group-text">내용</span>
+	<textarea class="form-control" placeholder="내용 입력..." aria-label="With textarea" name="announcement[content]" id="announcement_content" cols="30" rows="17" warp="on"><%= @announcement.content %></textarea>
+  </div>
+  &nbsp;
+  <div class="actions center">
+	<button type="submit" name="commit" class="btn btn-outline-success">업로드 하기</button>
+  </div>
+<% end %>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<title>GodFulJur - 아직 개발 중...</title>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light nav-tabs">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="/">
+					<img
+						class="brand-img"
+						alt=""
+						width="45"
+						height="45"
+					/>
+					<span style="color: #61ade6;">G</span><span>o</span><span>d</span
+					><span style="color: #00d5ff;">F</span><span>u</span><span>l</span
+					><span style="color: lightblue;">J</span><span>u</span><span>r</span>
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+				  <span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-tabs">
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" href="/">홈</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a
+								class="nav-link dropdown-toggle"
+								href="#"
+								id="navbarDropdown"
+								role="button"
+								data-bs-toggle="dropdown"
+								aria-expanded="false"
+							>
+								게시판
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li>
+									<a class="dropdown-item" href="/board/announcements/index"
+										>공지사항</a
+									>
+								</li>
+								<li><hr class="dropdown-divider" /></li>
+								<li><a class="dropdown-item" href="/posts">커뮤니티</a></li>
+								<li><a class="dropdown-item" href="/support">기타</a></li>
+							</ul>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/games">게임들</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/leaderboard">리더보드</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/store">상점</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/guidelines">규칙</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/introduction">서버 소개</a>
+						</li>
+					</ul>
+					<div class="d-flex nav-item">
+						<% if user_signed_in? %>
+						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+							<li class="nav-item">
+								<a class="nav-link active" href="#"><span style="color: <%= current_user.color %>">[<%= current_user.role %>]</span>&nbsp;<%= current_user.username %>님</a>
+							</li>
+						</ul>
+						&nbsp;
+						<form action="/users/edit">
+							<button class="btn btn-outline-success nav-item" type="submit">회원정보 수정</button>
+						</form>
+						&nbsp;
+						<%= form_tag(destroy_user_session_path, method: "delete") do %>
+							<button class="btn btn-outline-success nav-item" type="submit">로그아웃</button>
+						<% end %>
+						<% else %>
+						<form action="/users/sign_in">
+							<button class="btn btn-outline-success nav-item" type="submit">로그인</button>
+						</form>
+						&nbsp;
+						<form action="/users/sign_up">
+							<button class="btn btn-outline-success nav-item" type="submit">회원가입</button>		
+						</form>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<div class="all" style="padding-left: 0%; padding-right: 0%">
+			&nbsp;
+			<br>
+			&nbsp;
+			<div class="center content rounded-3 jua">
+				<div class="center content rounded-3">
+					<h1 class="center">아직 개발 중...</h1>
+					<img src="https://proxy.goorm.io/service/626695e04efdbbea25c558cc_dIm58XiDguRi37echy4.run.goorm.io/9080/file/load/notMade-removebg-preview.png?path=d29ya3NwYWNlJTJGR29kRnVsSnVyJTJGbm90TWFkZS1yZW1vdmViZy1wcmV2aWV3LnBuZw==&docker_id=dIm58XiDguRi37echy4&secure_session_id=fFx5SgQQHECxuUJ5X-1jKah0cBaTAamJ" alt="" width="60%"
+						height="60%" class="center">
+					<p>현재 해당 페이지는 개발 중이거나 이전을 준비 중입니다.<br>자세한 내용의 GodFulJur 공식 디스코드에서 문의해주세요.</p>
+				</div>
+			</div>
+			&nbsp;
+			<br>
+			&nbsp;
+		</div>
+	</body>
+</html>

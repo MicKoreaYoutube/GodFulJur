@@ -1,0 +1,2 @@
+module RulescontentsHelper
+end
